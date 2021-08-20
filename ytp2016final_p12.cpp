@@ -27,10 +27,10 @@ signed main() {
     int x = s1.size()-1,y=s2.size()-1;
     string t="";
     vector<pair<int,int>> e;
-    //cout<<s1<<endl<<s2<<endl;
+    cout<<s1<<endl<<s2<<endl;
     while(!(x==0&&y==0))
     {
-        if(x>0&&y>0&&s1[x]==s2[y])
+        if(x>=0&&y>=0&&s1[x]==s2[y])
         {
             t+=s1[x];
             e.push_back({x,y});
@@ -43,11 +43,13 @@ signed main() {
             else
                 y--;
         }
+        if(x==-1||y==-1)
+            break;
     }
     sort(e.begin(),e.end());
     reverse(t.begin(),t.end());
 
-    //cout<<t<<endl;
+    cout<<t<<endl;
     int now1=0,now2=0;
     int a=0,b=0,c=0;
     for(auto i:e)
